@@ -3,6 +3,7 @@ version: "3"
 services:
     app:
         build: .
+        image: andreychertkov/django_cve_2019_19844_poc
         command: bash -c  "python manage.py migrate --noinput && python manage.py shell < create_user.py && python manage.py runserver 0.0.0.0:8000"
         ports:
             - 8000:8000
