@@ -1,0 +1,15 @@
+FROM python:3.7
+
+WORKDIR app
+
+COPY requirements.txt .
+
+RUN pip install -r requirements.txt
+
+ENV DJANGO_DATABASE_NAME=django_cve_2019_19844_poc
+ENV DJANGO_DATABASE_USER=postgres
+ENV DJANGO_DATABASE_PASSWORD=postgres
+ENV DJANGO_DATABASE_HOST=postgres
+ENV DJANGO_DATABASE_PORT=5432
+
+COPY . .
